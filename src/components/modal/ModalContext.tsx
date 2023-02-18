@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { keyframes } from "styled-components";
 import { AnimatePresence, domMax, LazyMotion, m } from "framer-motion";
-import { MotionBox } from "./box/box";
+import { MotionBox } from "../Box/box";
 
 
 // 创建动画函数
@@ -45,7 +45,7 @@ export const StyledModalWrapper = styled(m.div)`
 
     }
 
-    .&.disappear {
+    &.disappear {
         animation: ${disappearAnimation} 0.3s ease-in-out forwards;
         ${ModalContainer} {
           

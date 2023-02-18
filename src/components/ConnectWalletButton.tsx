@@ -5,7 +5,7 @@ import { useActive, useActiveHandle } from "@/hooks/useEagerConnect"
 import useTranslation from "@/hooks/useTranslation"
 import { useMemo, useState } from "react"
 import { useConnect } from "wagmi"
-import { WalletModalV2 } from "./WalletModal"
+import { WalletModalV2 } from "./modal/WalletModal"
 
 const ConnectWalletButton = () => {
     const handleActive = useActiveHandle()

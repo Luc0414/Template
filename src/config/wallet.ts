@@ -1,4 +1,4 @@
-import { WalletConfigV2 } from '@/components/WalletModal';
+import { WalletConfigV2 } from '@/components/modal/WalletModal';
 import { ExtendEthereum } from '@/global';
 import { chains, metaMaskConnector } from '@/utils/wagmi';
 import { isFirefox } from 'react-device-detect'

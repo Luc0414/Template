@@ -10,3 +10,14 @@ export const MotionBox = styled(motion.div)<BoxProps>`
   ${position}
   ${space}
 `;
+
+const Box = styled.div<BoxProps>`
+  ${background}
+  ${border}
+  ${layout}
+  ${position}
+  ${space}
+  ${color}
+`;
+
+export default Box;
