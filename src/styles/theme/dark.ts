@@ -7,4 +7,4 @@ const darkTheme:DefaultTheme = {
     colors:darkColors
 }
 
-export default darkColors
+export default darkTheme
