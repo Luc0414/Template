@@ -20,3 +20,10 @@ export type MediaQueries = {
   xl: string;
   xxl: string;
 };
+
+
+export type ZIndices = {
+  ribbon: number;
+  dropdown: number;
+  modal: number;
+};

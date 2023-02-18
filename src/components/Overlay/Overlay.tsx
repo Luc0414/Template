@@ -17,8 +17,8 @@ const mountAnimation = keyframes`
 `;
 const StyledOverlay = styled(Box)<{isUnmounting?:boolean}> `
   position: fixed;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background-color: ${({ theme }) => `${theme.colors.text99}`};
@@ -44,11 +44,13 @@ const BodyLock = () => {
 
     return null
 }
-export const Overlay: React.FC<React.PropsWithChildren<OverlayProps>> = (props) => {
+const Overlay: React.FC<React.PropsWithChildren<OverlayProps>> = (props) => {
     return (
         <>
             <BodyLock />
-            <StyledOverlay {...props}/>
+            <StyledOverlay role="presentation" {...props}/>
         </>
     )
-};
+}
+
+export default Overlay

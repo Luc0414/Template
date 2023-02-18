@@ -1,11 +1,14 @@
 import { createGlobalStyle } from 'styled-components'
-import { MediaQueries } from './theme/types'
+import { ModalTheme } from './theme/modal';
+import { MediaQueries, ZIndices } from './theme/types'
 import { vars } from './theme/var.css'
 
 
 export interface Theme {
     colors: typeof vars.colors,
-    mediaQueries: MediaQueries
+    mediaQueries: MediaQueries,
+    modal: ModalTheme,
+    zIndices: ZIndices
 }
 
 // 拓展接口

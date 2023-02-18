@@ -1,12 +1,12 @@
 import getPortalRoot from "@/utils/getPortalRoot";
-import { HTMLAttributes, useRef } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, domMax, LazyMotion, Variants } from 'framer-motion';
 
 
 import { StyledModalWrapper } from "./ModalContext";
 import { BoxProps } from "../Box/types";
-import {Overlay} from "@/components/Overlay/Overlay";
+import Overlay from "@/components/Overlay/Overlay";
+import { useRef } from "react";
 
 export interface ModalV2Props {
     isOpen?: boolean;
@@ -67,7 +67,8 @@ export function ModalV2({ isOpen, onDismiss, closeOnOverlayClick, children,...pr
                             transition={{ duration: 0.3 }}
                             {...props}
                         >
-                            <Overlay />
+                            <Overlay onClick={handleOverlayDismiss}/>
+                            {children}
                         </StyledModalWrapper>
                     )}
                 </AnimatePresence>

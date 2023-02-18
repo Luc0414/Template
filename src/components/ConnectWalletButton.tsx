@@ -33,6 +33,7 @@ const ConnectWalletButton = () => {
                 isOpen={open}
                 wallets={wallets}
                 login={login}
+                onDismiss={() => setOpen(false)}
             />
 
         </>
