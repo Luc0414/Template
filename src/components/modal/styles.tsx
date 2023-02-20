@@ -9,12 +9,13 @@ export const ModalContainer = styled(MotionBox) <{ $minWidth: string }>`
   border: 1px solid ${({ theme }) => theme.colors.cardBorder};
   border-radius: 32px 32px 0px 0px;
   width: 100%;
+  max-height: calc(var(--vh, 1vh) * 100);
   z-index: ${({ theme }) => theme.zIndices.modal};
   position: absolute;
   min-width: ${({ $minWidth }) => $minWidth};
   bottom: 0;
   max-width: none !important;
-  max-height: calc(var(--vh, 1vh) * 100);
+  
   min-height: 300px;
   
   ${({theme}) => theme.mediaQueries.md} {

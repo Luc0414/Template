@@ -1,10 +1,11 @@
-import { LanguageProvider } from "@/utils/translation/Provider";
+import { LanguageProvider } from "@/context/translation/Provider";
 import { Store } from '@reduxjs/toolkit';
 import { ThemeProvider as NextThemeProvider, useTheme as useNextTheme } from 'next-themes';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { DefaultTheme, ThemeProvider } from "styled-components";
 import { WagmiConfig } from 'wagmi';
+import { MatchBreakpointsProvider } from "./context/MatchBreakpoints/Provider";
 import dark from './styles/theme/dark';
 import light from './styles/theme/light';
 import { client } from './utils/wagmi';
@@ -15,7 +16,9 @@ export const UIKitProvider: React.FC<React.PropsWithChildren<{ theme: DefaultThe
 }) => {
     return (
         <ThemeProvider theme={theme}>
-            {children}
+            <MatchBreakpointsProvider>
+                {children}
+            </MatchBreakpointsProvider>
         </ThemeProvider>
     )
 }

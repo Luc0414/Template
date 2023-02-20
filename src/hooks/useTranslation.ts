@@ -1,4 +1,4 @@
-import { LanguageContext } from '@/utils/translation/Provider'
+import { LanguageContext } from '@/context/translation/Provider'
 import { createContext, useCallback, useContext, useEffect, useState } from 'react'
 
 

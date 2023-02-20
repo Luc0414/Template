@@ -1,12 +1,12 @@
 import useLastUpdated from "@/hooks/useLastUpdated";
 import React, { createContext, useCallback, useEffect, useState } from "react";
-import { EN, languages } from "./config/languages";
+import { EN, languages } from "../../utils/translation/config/languages";
 import memoize from 'lodash/memoize'
 import omitBy from 'lodash/omitBy'
 import reduce from 'lodash/reduce'
-import { fetchLocale, getLanguageCodeFromLS, LS_KEY } from "./helpers";
-import { ContextApi, Language, ProviderState, TranslateFunction } from "./types";
-import isUndefinedOrNull from "../isUndefinedOrNull";
+import { fetchLocale, getLanguageCodeFromLS, LS_KEY } from "../../utils/translation/helpers";
+import { ContextApi, Language, ProviderState, TranslateFunction } from "../../utils/translation/types";
+import isUndefinedOrNull from "../../utils/isUndefinedOrNull";
 
 
 const initialState: ProviderState = {

@@ -6,6 +6,7 @@ import { atom, useAtom } from 'jotai';
 import styled from "styled-components";
 import { FC, useMemo, useTransition } from 'react'
 import { ModalV2 } from './ModalV2';
+import { ModalWrapper } from './Modal';
 
 
 type LinkOfDevice = string | DeviceLink
@@ -121,7 +122,9 @@ export function WalletModalV2<T = unknown>(props: WalletModalV2Props<T>) {
 
     return (
         <ModalV2 closeOnOverlayClick {...rest}>
+            <ModalWrapper onDismiss={props.onDismiss} style={{ overflow: 'visible', border: 'none' }}>
 
+            </ModalWrapper>
         </ModalV2>
     )
 }
