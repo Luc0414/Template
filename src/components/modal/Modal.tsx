@@ -7,7 +7,6 @@ export const MODAL_SWIPE_TO_CLOSE_VELOCITY = 300;
 
 export const ModalWrapper = ({children, onDismiss, minWidth, hideCloseButton, ...props}:PropsWithChildren<ModalWrapperProps>) => {
     const {isMobile} = useMatchBreakpoints();
-    console.log(isMobile && !hideCloseButton ? "y" : false)
     const wrapperRef = useRef<HTMLDivElement>(null);
     return (
         // @ts-ignore
