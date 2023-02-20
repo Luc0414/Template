@@ -13,6 +13,7 @@
     "@blocto/sdk": "^0.3.1",
     "@ethersproject/units": "^5.7.0",
     "@next/font": "13.1.6",
+    "@radix-ui/react-slot": "^1.0.1",
     "@reduxjs/toolkit": "^1.9.2",
     "@types/node": "18.13.0",
     "@types/react": "18.0.27",

@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { FC, useMemo, useTransition } from 'react'
 import { ModalV2 } from './ModalV2';
 import { ModalWrapper } from './Modal';
+import { AtomBox } from '../AtomBox';
 
 
 type LinkOfDevice = string | DeviceLink
@@ -123,7 +124,9 @@ export function WalletModalV2<T = unknown>(props: WalletModalV2Props<T>) {
     return (
         <ModalV2 closeOnOverlayClick {...rest}>
             <ModalWrapper onDismiss={props.onDismiss} style={{ overflow: 'visible', border: 'none' }}>
+                <AtomBox position="relative">
 
+                </AtomBox>
             </ModalWrapper>
         </ModalV2>
     )
