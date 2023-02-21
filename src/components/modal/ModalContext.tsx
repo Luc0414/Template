@@ -38,7 +38,8 @@ export const StyledModalWrapper = styled(m.div)`
   left: 0;
   will-change: opacity;
   opacity: 0;
-
+  z-index: ${({ theme }) => theme.zIndices.modal - 1};
+  
   &.appear {
     animation: ${appearAnimation} 0.3s ease-in-out forwards;
 
