@@ -9,7 +9,8 @@ const useLastUpdated = () => {
     // 上次更新时间的 state，通过 usePreviousValue hook 获取
     const previousLastUpdated = usePreviousValue(lastUpdated)
 
-    // 更新当前更新时间的函数，使用 useCallback 以避免不必要的重新渲染
+    // 当使用useState返回的set函数更新状态时，组件会重新渲染。
+    // 如果将useState返回的set函数包含在useCallback的依赖数组中，那么每次重新渲染时，useCallback都会返回一个新的函数引用，导致子组件重新渲染。
     const setLastUpdated = useCallback(() => {
         setStateLastUpdated(Date.now())
     }, [setStateLastUpdated])
