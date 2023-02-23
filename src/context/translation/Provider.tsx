@@ -61,5 +61,5 @@ export const LanguageProvider: React.FC<React.PropsWithChildren> = ({ children }
         return translatedText
     }, [])
 
-    return <LanguageContext.Provider value={{ ...state }}>{children}</LanguageContext.Provider>
+    return <LanguageContext.Provider value={{ ...state,t:translate }}>{children}</LanguageContext.Provider>
 }

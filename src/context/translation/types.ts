@@ -1,4 +1,4 @@
-import translations from "@/config/translations.json"
+import translations from '@/utils/translation/config/translations.json'
 
 // ContextData 接口用于表示翻译的数据，可以是字符串或数字
 export type ContextData = {
