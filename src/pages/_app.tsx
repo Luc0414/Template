@@ -1,5 +1,28 @@
+import Providers from '@/Providers'
+import { persistor, useStore } from '@/state'
 import type { AppProps } from 'next/app'
+import { PersistGate } from 'redux-persist/integration/react'
 
-export default function App({ Component, pageProps }: AppProps) {
+
+function MyApp(props: AppProps<{ initialReduxState: any }>) {
+  const { pageProps, Component } = props
+
+  const store = useStore(pageProps.initialReduxState)
+
+  return (
+    <>
+      <Providers store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <App {...props} />
+        </PersistGate>
+      </Providers>
+    </>
+  )
+
+}
+function App({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />
 }
+
+
+export default MyApp

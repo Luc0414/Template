@@ -21,6 +21,7 @@ import {
   TranslateFunction,
 } from "./types";
 
+
 // 组件初始化
 const initialState: ProviderState = {
   isFetching: true,
@@ -54,6 +55,7 @@ const translatedTextIncludesVariable = memoize(
 export const LanguageProvider: React.FC<React.PropsWithChildren> = ({
   children,
 }) => {
+
   // 获取更新时间和设置更新时间的方法
   const { lastUpdated, setLastUpdated: refresh } = useLastUpdated();
 
@@ -75,7 +77,6 @@ export const LanguageProvider: React.FC<React.PropsWithChildren> = ({
   // 渲染完成后之后执行
   useEffect(() => {
     const fetchInitialLocales = async () => {
-
       // 从LocalStorage中获取语言代码
       const codeFromStorage = getLanguageCodeFromLS();
       
@@ -99,10 +100,12 @@ export const LanguageProvider: React.FC<React.PropsWithChildren> = ({
     };
 
     fetchInitialLocales();
+
   }, [refresh]);
 
   // useCallback的deps为空时，回调函数之后在首次渲染时被创建并返回，返回的回调函数将一直保持不变
   const setLanguage = useCallback(async (language: Language) => {
+
     // 更改状态，isFetching正在获取翻译数据
     if (!languageMap.has(language.locale)) {
       setState((prevState) => ({
