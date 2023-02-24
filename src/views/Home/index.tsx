@@ -16,7 +16,7 @@ const Home: React.FC<React.PropsWithChildren> = () => {
 
     return (
         <>
-            <Page symbol="Home | PancakeSwap">123123</Page>
+            <Page />
             <h1>Test Page</h1>
             <button onClick={() => {setLanguage(ZHCN)}}>简体中文</button>
             <button onClick={() => {setLanguage(EN)}}>英语</button>
