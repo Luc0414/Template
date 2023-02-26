@@ -1,11 +1,14 @@
 import { DEFAULT_META, getCustomMeta } from "@/config/constants/meta";
 import useTranslation from "@/hooks/useTranslation";
 import { NextSeo } from "next-seo";
-import Head from "next/head";
 import { useRouter } from "next/router";
 import styled from "styled-components";
+import Box from "../Box/Box";
 import Container from "./Container";
 
+const TabMenuWrapper = styled(Box)`
+  
+`
 const StyledPage = styled(Container)``;
 export const PageMeta: React.FC<React.PropsWithChildren> = () => {
   const {
@@ -20,15 +23,16 @@ export const PageMeta: React.FC<React.PropsWithChildren> = () => {
     return null;
   }
   // 忽略值为undefined的数据
-  const newPageMeta = Object.entries(pageMeta).reduce((acc,[key,vaule]) => {
-    if(vaule !== undefined){
-        acc[key] = vaule
-    }
-    return acc
-  })
+//   const newPageMeta = Object.entries(pageMeta).reduce((acc,[key,vaule]) => {
+//     if(vaule !== undefined){
+//         acc[key] = vaule
+//     }
+//     return acc
+//   })
 
-  const { description, image } = { ...DEFAULT_META, ...newPageMeta };
-  console.log(image)
+  // const newPageMeta = omitUndefined(pageMeta)
+
+  const { description, image } = { ...DEFAULT_META, ...pageMeta };
   return (
     <NextSeo
       title={pageMeta.title}

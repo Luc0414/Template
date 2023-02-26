@@ -40,7 +40,7 @@ export const getCustomMeta = memoize(
         return {
             title:`${pathMetadata.title}`,
             ...(pathMetadata.description && {description:pathMetadata.description}),
-            image:pathMetadata.image
+            ...(pathMetadata.image &&{image:pathMetadata.image})
         }
     }
     return null;

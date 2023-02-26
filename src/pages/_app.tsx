@@ -1,5 +1,6 @@
 import Providers from '@/Providers'
 import { persistor, useStore } from '@/state'
+import GlobalStyle from '@/style/Global'
 import type { AppProps } from 'next/app'
 import { PersistGate } from 'redux-persist/integration/react'
 
@@ -11,7 +12,9 @@ function MyApp(props: AppProps<{ initialReduxState: any }>) {
 
   return (
     <>
+    
       <Providers store={store}>
+      <GlobalStyle />
         <PersistGate loading={null} persistor={persistor}>
           <App {...props} />
         </PersistGate>
