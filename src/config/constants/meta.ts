@@ -2,6 +2,7 @@ import { ContextAPI } from "@/context/translation";
 import { memoize } from "lodash";
 import { PageMeta } from "./types";
 
+// 默认的页面元数据
 export const DEFAULT_META: PageMeta = {
     title: 'PancakeSwap',
     description:
@@ -10,6 +11,7 @@ export const DEFAULT_META: PageMeta = {
   }
 
 
+// 页面路径列表类型
 interface PathList {
   paths: {
     [path: string]: {
@@ -22,6 +24,7 @@ interface PathList {
   defaultTitleSuffix: string;
 }
 
+// 获取页面路径列表
 const getPathList = (t: ContextAPI["t"]): PathList => {
   return {
     paths: {
@@ -30,6 +33,8 @@ const getPathList = (t: ContextAPI["t"]): PathList => {
     defaultTitleSuffix:t('PancakeSwap')
   };
 };
+
+// 获取特定页面的自定义元数据，使用 lodash.memoize 进行性能优化
 export const getCustomMeta = memoize(
   (path: string, t: ContextAPI["t"], _: string): PageMeta => {
     const pathlist = getPathList(t)
@@ -45,6 +50,7 @@ export const getCustomMeta = memoize(
     }
     return null;
   },
+  // memoize 的 key 为 path#locale，如果 path 和 locale 没有变化，则直接返回上次的计算结果
   (path,t,locale) => `${path}#${locale}`
 );
 export {};

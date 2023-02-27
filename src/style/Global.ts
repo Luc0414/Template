@@ -4,7 +4,7 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
     * {
-        font-family: 'Kanit', sans-serif;
+        font-family: 'Kanit', 'Ma Shan Zheng',sans-serif;
     }
 
     body {
