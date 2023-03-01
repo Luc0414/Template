@@ -10,3 +10,4 @@ export const tokens = {
 
 export type Mode = 'light' | 'dark'
 export type Tokens = typeof tokens
+

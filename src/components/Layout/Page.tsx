@@ -1,9 +1,9 @@
 import { DEFAULT_META, getCustomMeta } from "@/config/constants/meta";
 import useTranslation from "@/hooks/useTranslation";
+import Box from "@/uikit/components/Box/Box";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import styled from "styled-components";
-import Box from "../Box/Box";
 import Container from "./Container";
 
 const TabMenuWrapper = styled(Box)`

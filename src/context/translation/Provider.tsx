@@ -169,6 +169,7 @@ export const LanguageProvider: React.FC<React.PropsWithChildren> = ({
 
       return translatedText;
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [currentLanguage, lastUpdated]
   );
   

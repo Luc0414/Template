@@ -10,7 +10,9 @@ import { Theme } from "./types";
 const getVarName = (_value: string | null, path: string[]) => path.join("-");
 
 // 获取主题基础 tokens
-const baseTokens: Omit<Theme, "color"> = tokens;
+const baseTokens: Omit<Theme, "colors"> = tokens;
+
+console.log("baseTokens->",baseTokens)
 // 创建主题基础变量
 const baseVars = createGlobalThemeContract(baseTokens, getVarName);
 // 将主题基础变量应用到全局 :root
