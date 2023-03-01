@@ -31,6 +31,8 @@ const margin = { ...vars.space, auto: 'auto' }
 const extendedHeight = { '100vh': '100vh' }
 
 const responsiveProperties = defineProperties({
+    // 为提供的属性定义一组媒体/特征/容器查询。
+    // 例如，属性可以被范围化为媒体查询。
     conditions: {
         xs: {},
         sm: { '@media': `(min-width: ${breakpoints.sm}px)` },
@@ -39,8 +41,11 @@ const responsiveProperties = defineProperties({
         xl: { '@media': `(min-width: ${breakpoints.xl}px)` },
         xxl: { '@media': `(min-width: ${breakpoints.xxl}px)` },
     },
+    // 默认xs
     defaultCondition: 'xs',
+    // 提供一个条件名称的数组，通过定义条件的顺序来实现响应的数组符号（例如['列'，'行']）。
     responsiveArray: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],
+    // 用户可以设置的CSS属性，值是创建的对象
     properties: {
         display: ['block', 'flex', 'grid', 'inline', 'inline-flex', 'inline-block', 'none', 'contents'],
         flexDirection: ['column', 'row', 'column-reverse'],
@@ -145,6 +150,7 @@ const responsiveProperties = defineProperties({
             '1': `1px solid ${vars.colors.cardBorder}`,
         },
     },
+    // 将自定义的速记属性映射到多个底层CSS属性。这对于将padding/paddingX/paddingY等值映射到它们的底层速记值很有用。
     shorthands: {
         borderLeftRadius: ['borderBottomLeftRadius', 'borderTopLeftRadius'],
         borderRightRadius: ['borderBottomRightRadius', 'borderTopRightRadius'],

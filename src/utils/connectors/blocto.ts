@@ -53,7 +53,6 @@ export class BloctoConnector extends Connector<EthereumProviderInterface, { defa
     async connect({ chainId }: { chainId?: number } = {}) {
         try {
             const provider = await this.getProvider({ chainId })
-            console.log(provider)
             if (!provider) throw new ConnectorNotFoundError()
 
             if (provider.on) {

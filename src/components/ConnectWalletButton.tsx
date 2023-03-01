@@ -19,7 +19,7 @@ const ConnectWalletButton = () => {
 
     const { chainId } = useActiveChainId()
 
-
+    const docLink= "https://www.baidu.com"
     const wallets = useMemo(() => createWallets(chainId, connectAsync), [chainId, connectAsync])
 
     const handleCilck = () => {
@@ -30,6 +30,7 @@ const ConnectWalletButton = () => {
             <button onClick={handleCilck}>连接钱包</button>
             <WalletModalV2
                 docText={t('Learn How to Connect')}
+                docLink={docLink}
                 isOpen={open}
                 wallets={wallets}
                 login={login}
