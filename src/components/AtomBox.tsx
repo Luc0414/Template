@@ -1,7 +1,7 @@
 import { atoms, Atoms } from "@/styles/atom"
 import clsx, { ClassValue } from 'clsx'
 import React from "react"
-import { Slot } from '@radix-ui/react-slot'
+import { Slot } from "@radix-ui/react-slot"
 import { sprinkles } from "@/styles/sprinkles.css"
 
 // Html元素，定义一个Html所有可能的属性，排除'as' | 'className' | 'color' | 'height' | 'width' | 'size'
