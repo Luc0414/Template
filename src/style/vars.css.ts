@@ -12,11 +12,11 @@ const getVarName = (_value: string | null, path: string[]) => path.join("-");
 // 获取主题基础 tokens
 const baseTokens: Omit<Theme, "colors"> = tokens;
 
-console.log("baseTokens->",baseTokens)
 // 创建主题基础变量
 const baseVars = createGlobalThemeContract(baseTokens, getVarName);
 // 将主题基础变量应用到全局 :root
 createGlobalTheme(":root", baseVars, baseTokens);
+
 
 // 定义一个函数用于根据主题模式生成颜色方案
 const makeColorScheme = (mode: Mode = "light") => {
@@ -40,5 +40,6 @@ createGlobalTheme('[data-theme="dark"]', modeVars, makeColorScheme('dark'))
 type BaseVars = typeof baseVars;
 type ModeVars = typeof modeVars
 type Vars = BaseVars & ModeVars;
+
 
 export const vars = deepmerge(baseVars, modeVars) as Vars;
