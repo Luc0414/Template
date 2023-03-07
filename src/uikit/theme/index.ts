@@ -9,6 +9,8 @@ export interface Theme {
     zIndices:ZIndices,
     modal: ModalTheme,
     mediaQueries: MediaQueries,
+    radii: typeof vars.radii;
+    spacing: typeof vars.space;
 }
 
 export { default as dark } from "./dark"
