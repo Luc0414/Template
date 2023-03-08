@@ -1,7 +1,7 @@
 import { atoms, Atoms } from "@/style/atoms"
 import clsx, { ClassValue } from "clsx"
 import { Slot } from '@radix-ui/react-slot'
-import React from "react"
+import React, { ElementType } from "react"
 import { sprinkles } from "@/style/sprinkles.css"
 
 type HTMLProperties<T = HTMLElement> = Omit<

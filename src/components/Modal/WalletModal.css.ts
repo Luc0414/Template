@@ -18,3 +18,21 @@ export const modalWrapperClass = style([
         },
     }),
 ])
+
+export const walletSelectWrapperClass = style(
+    responsiveStyle({
+        xs: {
+            gridTemplateColumns: '1fr 1fr 1fr 1fr',
+            rowGap: '10px',
+            columnGap: '8px',
+        },
+        sm: {
+            rowGap: '24px',
+            columnGap: '16px',
+            gridTemplateColumns: '1fr 1fr',
+        },
+        lg: {
+            gridTemplateColumns: '1fr 1fr 1fr',
+        },
+    }),
+)

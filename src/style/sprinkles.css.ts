@@ -14,8 +14,8 @@ const negativeSpace = {
     '-5': `${calc(vars.space['5']).negate()}`,
     '-6': `${calc(vars.space['6']).negate()}`,
     '-7': `${calc(vars.space['7']).negate()}`,
-  }
-  
+}
+
 
 const extendedSpace = {
     '100%': '100%',
@@ -26,8 +26,8 @@ const extendedSpace = {
     screenMd: breakpoints.md,
     screenLg: breakpoints.lg,
     screenXl: breakpoints.xl,
-  } as const
-  
+} as const
+
 // 响应的属性
 const responsiveProperties = defineProperties({
     // 为提供的属性定义一组媒体/特征/容器查询。
@@ -46,7 +46,14 @@ const responsiveProperties = defineProperties({
     //定义哪些CSS属性和值应该是可用的。
     // 对于简单的映射（即有效的CSS值），值可以以数组的形式提供。
     properties: {
+        overflowY: ['auto', 'hidden', 'scroll'],
+        overflowX: ['auto', 'hidden', 'scroll'],
+        overflow: ['auto', 'hidden', 'scroll', 'unset'],
         padding: { ...vars.space, ...negativeSpace },
+        paddingTop: vars.space,
+        paddingBottom: vars.space,
+        paddingLeft: vars.space,
+        paddingRight: vars.space,
         textAlign: ['center', 'left', 'right'],
         alignItems: ['center', 'end', 'baseLine', 'inherit', ...flexAlignment],
         flexDirection: ['column', 'row', 'column-reverse'],
@@ -76,12 +83,21 @@ const responsiveProperties = defineProperties({
         width: {
             ...vars.space,
             ...extendedSpace,
-          },
+        },
+        flex: {
+            1: '1 1 0%',
+            auto: '1 1 auto',
+            initial: '0 1 auto',
+            none: 'none',
+        },
     },
     // 将自定义的速记属性映射到多个底层CSS属性。
     shorthands: {
         borderBottomRadius: ['borderBottomLeftRadius', 'borderBottomRightRadius'],
         p: ['padding'],
+        py: ['paddingTop', 'paddingBottom'],
+        px: ['paddingLeft', 'paddingRight'],
+        pb: ['paddingBottom'],
     }
 
 })

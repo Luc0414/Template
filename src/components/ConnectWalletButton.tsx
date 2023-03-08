@@ -1,3 +1,4 @@
+import { createWallets } from "@/config/wallet"
 import { useActiveChainId } from "@/hooks/useActiveChainId"
 import { Trans } from "@/translation/Trans"
 import Button from "@/uikit/components/Button/Button"
