@@ -1,5 +1,6 @@
+import { atoms } from "@/style/atoms";
 import { responsiveStyle } from "@/style/responsiveStyle";
-import { style } from "@vanilla-extract/css";
+import { keyframes, style } from "@vanilla-extract/css";
 
 export const modalWrapperClass = style([
     style({
@@ -36,3 +37,32 @@ export const walletSelectWrapperClass = style(
         },
     }),
 )
+
+
+export const walletIconClass = style({
+    width: '50px',
+    height: '50px',
+    borderRadius: '12px',
+})
+
+const promotedGradientKf = keyframes({
+    '0%': {
+      backgroundPosition: '50% 0%',
+    },
+    '50%': {
+      backgroundPosition: '50% 100%',
+    },
+    '100%': {
+      backgroundPosition: '50% 0%',
+    },
+  })
+
+export const promotedGradientClass = style([
+    atoms({
+        background: 'gradientBold',
+    }),
+    style({
+        animation: `${promotedGradientKf} 3s ease infinite`,
+        backgroundSize: '400% 400%',
+    }),
+])

@@ -15,6 +15,9 @@ export const lightColors = {
     input: '#eeeaf4',
     gradientCardHeader: 'linear-gradient(111.68deg, #F2ECF2 0%, #E8F2F6 100%)',
     textSubtle: '#7A6EAA',
+    dropdown: '#F6F6F6',
+    gradientBold: 'linear-gradient(#53DEE9, #7645D9)',
+    text: '#280D5F',
 }
 
 export const darkColors = {
@@ -29,4 +32,7 @@ export const darkColors = {
     input: '#372F47',
     gradientCardHeader: 'linear-gradient(166.77deg, #3B4155 0%, #3A3045 100%)',
     textSubtle: '#B8ADD2',
+    dropdown: '#1E1D20',
+    gradientBold: 'linear-gradient(#53DEE9, #9A6AFF)',
+    text: '#F4EEFF',
 }

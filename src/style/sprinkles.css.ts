@@ -16,6 +16,7 @@ const negativeSpace = {
     '-7': `${calc(vars.space['7']).negate()}`,
 }
 
+const margin = { ...vars.space, auto: 'auto' }
 
 const extendedSpace = {
     '100%': '100%',
@@ -46,6 +47,13 @@ const responsiveProperties = defineProperties({
     //定义哪些CSS属性和值应该是可用的。
     // 对于简单的映射（即有效的CSS值），值可以以数组的形式提供。
     properties: {
+        marginBottom: { ...margin, ...negativeSpace },
+        opacity: {
+            '0.5': 0.5,
+            '0.6': 0.6,
+          },
+        inset: { ...vars.space, ...negativeSpace },
+        justifyContent: [...flexAlignment, 'space-around', 'space-between'],
         overflowY: ['auto', 'hidden', 'scroll'],
         overflowX: ['auto', 'hidden', 'scroll'],
         overflow: ['auto', 'hidden', 'scroll', 'unset'],
@@ -98,6 +106,7 @@ const responsiveProperties = defineProperties({
         py: ['paddingTop', 'paddingBottom'],
         px: ['paddingLeft', 'paddingRight'],
         pb: ['paddingBottom'],
+        mb: ['marginBottom'],
     }
 
 })
@@ -116,6 +125,11 @@ const interactiveProperties = defineProperties({
 
     properties: {
         background: vars.colors,
+        backgroundColor: vars.colors,
+    },
+    shorthands: {
+        bgc: ['backgroundColor'],
+        bg: ['background'],
     }
 })
 

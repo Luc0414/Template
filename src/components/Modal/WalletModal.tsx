@@ -9,7 +9,9 @@ import { atom, useAtom } from "jotai";
 import { PropsWithChildren, useMemo, useState } from "react";
 import { ModalWrapper } from "./Modal";
 import { ModalV2, ModalV2Props } from "./ModalV2";
-import { modalWrapperClass, walletSelectWrapperClass } from "./WalletModal.css";
+import { modalWrapperClass, promotedGradientClass, walletIconClass, walletSelectWrapperClass } from "./WalletModal.css";
+import Image from "@/uikit/components/Image/Image";
+import { SvgProps } from "@/uikit/components/SVG/types";
 
 const errorAtom = atom<string>('')
 
@@ -38,7 +40,7 @@ type LinkOfDevice = string | DeviceLink
 export type WalletConfigV2<T = unknown> = {
     id: string,
     title: string,
-    icon: string,
+    icon: string | React.FC<React.PropsWithChildren<SvgProps>>,
     connectorId: T,
     deepLink?: string,
     installed?: boolean,
@@ -94,24 +96,49 @@ function WalletSelect<T>({ wallets, onClick, displayCount = 6 }: { wallets: Wall
                 const isImage = typeof wallet.icon === 'string'
                 const Icon = wallet.icon
                 return (
-                    <Button 
-                    key={wallet.id} 
-                    variant="text" 
-                    height="auto" 
-                    as={AtomBox} 
-                    display="flex" 
-                    alignItems="center"
-                    style={{ justifyContent: 'flex-start', letterSpacing: 'normal', padding: '0' }}
-                    flexDirection="column"
-                    onClick={() => onClick(wallet)}
+                    <Button
+                        key={wallet.id}
+                        variant="text"
+                        height="auto"
+                        as={AtomBox}
+                        display="flex"
+                        alignItems="center"
+                        style={{ justifyContent: 'flex-start', letterSpacing: 'normal', padding: '0' }}
+                        flexDirection="column"
+                        onClick={() => onClick(wallet)}
                     >
-                        123123
+                        <AtomBox className={wallet.installed && promotedGradientClass} p="2px" borderRadius="12px" mb="4px" style={{padding:"2px",marginBottom:"4px"}}>
+                            <AtomBox
+                                bgc="dropdown"
+                                display="flex"
+                                position="relative"
+                                justifyContent="center"
+                                alignItems="center"
+                                className={walletIconClass}
+                                style={{ borderRadius: '13px' }}
+                            >
+                                {isImage ? (
+                                    <Image src={Icon as string} width={50} height={50} />
+                                ) : (
+                                    <Icon width={24} height={24} color="textSubtle" />
+                                )}
+                                {wallet.id === selected?.id && (
+                                    <AtomBox position="absolute" inset="0" bgc="secondary" opacity="0.5" borderRadius="12px" />
+                                )}
+                            </AtomBox>
+                        </AtomBox>
+                        <Text fontSize="12px" textAlign="center">
+                            {wallet.title}
+                        </Text>
                     </Button>
                 )
             })}
         </AtomBox>
     )
 }
+
+const MOBILE_DEFAULT_DISPLAY_COUNT = 6
+
 function MobileModal<T>({
     wallets,
     connectWallet,
@@ -152,6 +179,7 @@ function MobileModal<T>({
             }
             <AtomBox flex={1} py="16px" style={{ maxHeight: '230px' }} overflow="auto">
                 <WalletSelect
+                    displayCount={MOBILE_DEFAULT_DISPLAY_COUNT}
                     wallets={walletsToShow}
                     onClick={(wallet) => {
                         connectWallet(wallet)
@@ -160,7 +188,9 @@ function MobileModal<T>({
                         }
                     }} />
             </AtomBox>
-            <AtomBox></AtomBox>
+            <AtomBox>
+
+            </AtomBox>
         </AtomBox>
     )
 }

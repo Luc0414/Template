@@ -5,7 +5,9 @@ import { ButtonProps, scales, variants } from "./types"
 
 // 声明泛型的Button组件，使用 <E extends ElementType = "button"> 定义了 E 泛型类型的默认值为 button。
 // 声明 props 的类型为 ButtonProps。
-const Button = <E extends ElementType = "button">(props: ButtonProps): JSX.Element => {
+// 约束as传入的类型
+// 传入as会自动推断E的类型
+const Button = <E extends ElementType = "button">(props: ButtonProps<E>): JSX.Element => {
 
     // 解构出 props 对象的一些属性，包括：startIcon、endIcon、external、className、isLoading、disabled 和 children 等等。
     const { startIcon, endIcon, external, className, isLoading, disabled, children, ...rest } = props
